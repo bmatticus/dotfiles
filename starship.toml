@@ -1,0 +1,22 @@
+# ~/.config/starship.toml
+#
+
+#format = '''
+#[┌───────────────────>](bold green)
+#[│](bold green)$directory$package$kubernetes$python$git_branch
+#[└─>](bold green) '''
+
+format = '''
+$directory$kubernetes$python$git_branch
+> '''
+
+[kubernetes]
+format = 'in $symbol(dimmed green)$context '
+disabled = false
+[kubernetes.context_aliases]
+'dev.local.cluster.k8s' = 'dev'
+'.*/openshift-cluster/.*' = 'openshift'
+'gke_.*_(?P<var_cluster>[\w-]+)' = 'gke-$var_cluster'
+[kubernetes.user_aliases]
+'dev.local.cluster.k8s' = 'dev'
+'root/.*' = 'root'
